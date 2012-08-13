@@ -7,12 +7,13 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 
+import cloud.quierescomprar.model.Oferta;
 import cloud.quierescomprar.model.OfertaVenta;
 import cloud.quierescomprar.util.HibernateUtil;
 
 public class OfertaVentaDaoImpl implements OfertaVentaDao {
 
-public List<OfertaVenta> listaOfertaVentaxUsuario() {
+public String[] listaOfertaVentaxUsuario() {
 		
 		Session sesion = HibernateUtil.getSessionFactory();
 		
@@ -25,7 +26,21 @@ public List<OfertaVenta> listaOfertaVentaxUsuario() {
 		q.setString("nomusuario", newString);
 		listaOfertasxUsuario=q.list();
 		
-		return listaOfertasxUsuario;		
+		String[] listaOfertasxUsuarioString=new String[listaOfertasxUsuario.size()] ;
+		int i=0;
+		for(OfertaVenta objOfertaVenta:listaOfertasxUsuario){
+			listaOfertasxUsuarioString[i]=
+			objOfertaVenta.getUsuario().getNroDocId()+"#"
+					+objOfertaVenta.getUsuario().getNombre()+" "+objOfertaVenta.getUsuario().getApePaterno()+ " "+objOfertaVenta.getUsuario().getApeMaterno() +"#"
+					+objOfertaVenta.getOferta().getEmpresa()+"#"
+					+objOfertaVenta.getOferta().getDescripcion()+"#"
+					+objOfertaVenta.getOferta().getDescuento()+"#"
+					+(objOfertaVenta.getOferta().getPrecio().doubleValue()-objOfertaVenta.getOferta().getPrecio().doubleValue()*objOfertaVenta.getOferta().getDescuento().doubleValue());
+			i++;
+			
+		}
+		
+		return listaOfertasxUsuarioString;		
 	}
 
 	public int registroOfertaVenta(OfertaVenta objOfertaVenta) {

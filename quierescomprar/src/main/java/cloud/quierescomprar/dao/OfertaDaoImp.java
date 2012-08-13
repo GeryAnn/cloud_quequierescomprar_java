@@ -17,8 +17,6 @@ import cloud.quierescomprar.model.Usuario;
 import cloud.quierescomprar.model.UsuarioId;
 import cloud.quierescomprar.util.HibernateUtil;
 
-
-
 public class OfertaDaoImp implements OfertaDao{
 
 public  String[] listaOfertasDelDia() {
