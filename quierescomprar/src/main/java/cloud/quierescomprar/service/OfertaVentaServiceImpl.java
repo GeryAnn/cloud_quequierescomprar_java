@@ -8,12 +8,13 @@ import cloud.quierescomprar.dao.OfertaVentaDao;
 import cloud.quierescomprar.dao.OfertaVentaDaoImpl;
 import cloud.quierescomprar.model.OfertaVenta;
 
+
 @WebService(endpointInterface="cloud.quierescomprar.service.OfertaVentaService")
 public class OfertaVentaServiceImpl implements OfertaVentaService {
 
 	OfertaVentaDao dao= new OfertaVentaDaoImpl();
 	
-	public List<OfertaVenta> listaOfertaVentaxUsuario() {
+	public String[] listaOfertaVentaxUsuario() {
 		// TODO Auto-generated method stub
 		return dao.listaOfertaVentaxUsuario();
 	}
@@ -22,4 +23,10 @@ public class OfertaVentaServiceImpl implements OfertaVentaService {
 		// TODO Auto-generated method stub
 		return dao.registroOfertaVenta(objOfertaVenta);
 	}
+
+
+	//public List<OfertaVenta> listaOfertaVentaxUsuario(int dias) {
+		// TODO Auto-generated method stub
+		//return dao.listaOfertaVentaxUsuario();
+	//}
 }

@@ -6,7 +6,7 @@ import cloud.quierescomprar.model.OfertaVenta;
 
 public interface OfertaVentaDao {
 
-	public List<OfertaVenta> listaOfertaVentaxUsuario();
+	public String[] listaOfertaVentaxUsuario();
 	public int registroOfertaVenta(OfertaVenta objOfertaVenta);
 	public List<OfertaVenta> listaOfertasTotalxUsuario();	
 }

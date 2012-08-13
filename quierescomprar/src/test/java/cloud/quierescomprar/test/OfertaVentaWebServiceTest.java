@@ -21,23 +21,44 @@ public class OfertaVentaWebServiceTest {
 
 	@Test
 	public void testListaOfertasxUsuario() {
-		OfertaVentaServiceImpl servicio= new OfertaVentaServiceImpl();
-		Assert.assertEquals(1, servicio.listaOfertaVentaxUsuario().size());
+		OfertaVentaServiceImpl servicioOferta= new OfertaVentaServiceImpl();
+		Assert.assertEquals(2, servicioOferta.listaOfertaVentaxUsuario().length);
 		
 		//IMPRESION DE RESULTADOS EN CONSOLA
-		for(OfertaVenta objOfertaVenta:servicio.listaOfertaVentaxUsuario())
-		{
-			
-			System.out.println("USUARIO "+objOfertaVenta.getUsuario().getNombre()+" "+objOfertaVenta.getUsuario().getApePaterno()+" - "+objOfertaVenta.getUsuario().getId().getEmail());
-			System.out.println("EMPRESA "+objOfertaVenta.getOferta().getEmpresa().getRuc()+" - "+objOfertaVenta.getOferta().getEmpresa().getRazonSocial());
-			System.out.println("DESCRIPCION OFERTA "+objOfertaVenta.getOferta().getDescripcion());
-			System.out.println("PRECIO "+objOfertaVenta.getOferta().getPrecio());
-			System.out.println("DESCUENTO "+objOfertaVenta.getOferta().getDescuento());
-			System.out.println("PRECIO OFERTA "+(objOfertaVenta.getOferta().getPrecio().doubleValue()*objOfertaVenta.getOferta().getDescuento().doubleValue()));
+		String fila="";
+		for(int i=0;i<servicioOferta.listaOfertaVentaxUsuario().length;i++){
+			fila=servicioOferta.listaOfertaVentaxUsuario()[i];
+			String[]celdas=fila.split("#");
+			for(int j=0;j<celdas.length;j++){
+				System.out.println(celdas[j]);
+			}
 			
 		}
 	
 	}
+	
+	
+	
+	
+	//@Test
+	//public void testListaOfertasxUsuario() {
+		//OfertaVentaServiceImpl servicio= new OfertaVentaServiceImpl();
+		//Assert.assertEquals(1, servicio.listaOfertaVentaxUsuario().size());
+		
+		//IMPRESION DE RESULTADOS EN CONSOLA
+		//for(OfertaVenta objOfertaVenta:servicio.listaOfertaVentaxUsuario())
+		//{
+			
+			//System.out.println("USUARIO "+objOfertaVenta.getUsuario().getNombre()+" "+objOfertaVenta.getUsuario().getApePaterno()+" - "+objOfertaVenta.getUsuario().getId().getEmail());
+			//System.out.println("EMPRESA "+objOfertaVenta.getOferta().getEmpresa().getRuc()+" - "+objOfertaVenta.getOferta().getEmpresa().getRazonSocial());
+			//System.out.println("DESCRIPCION OFERTA "+objOfertaVenta.getOferta().getDescripcion());
+			//System.out.println("PRECIO "+objOfertaVenta.getOferta().getPrecio());
+			//System.out.println("DESCUENTO "+objOfertaVenta.getOferta().getDescuento());
+			//System.out.println("PRECIO OFERTA "+(objOfertaVenta.getOferta().getPrecio().doubleValue()*objOfertaVenta.getOferta().getDescuento().doubleValue()));
+			
+		//}
+	
+	//}
 
 	
 	

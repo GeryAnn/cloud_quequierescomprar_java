@@ -11,7 +11,8 @@ import cloud.quierescomprar.model.OfertaVenta;
 @WebService
 public interface OfertaVentaService {
 	@WebResult(name="ofertasxusuario")
-	public List<OfertaVenta> listaOfertaVentaxUsuario();
+	
+	public String[] listaOfertaVentaxUsuario();
 	
 	public int registroOfertaVenta(@WebParam(name="objOfertaVenta") OfertaVenta objOfertaVenta);		
 }
